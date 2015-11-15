@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1447544322 source:/home/raim/Documents/Unitec/II Año/Q5/F. III/ArduinoRATM/main.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_primitives.h>
+
+1447532317 source:/home/raim/Documents/Unitec/II Año/Q5/F. III/ArduinoRATM/Box.cpp
+	"Box.h"
+
+1447534115 /home/raim/Documents/Unitec/II Año/Q5/F. III/ArduinoRATM/Box.h
+
