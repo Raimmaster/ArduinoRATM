@@ -12,21 +12,23 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-std=c++14" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="../../../../../usr/lib/liballegro.so" />
-					<Add library="../../../../../usr/lib/liballegro_acodec.so" />
-					<Add library="../../../../../usr/lib/liballegro_audio.so" />
-					<Add library="../../../../../usr/lib/liballegro_color.so" />
-					<Add library="../../../../../usr/lib/liballegro_dialog.so" />
-					<Add library="../../../../../usr/lib/liballegro_font.so" />
-					<Add library="../../../../../usr/lib/liballegro_image.so" />
-					<Add library="../../../../../usr/lib/liballegro_main.so" />
-					<Add library="../../../../../usr/lib/liballegro_memfile.so" />
-					<Add library="../../../../../usr/lib/liballegro_physfs.so" />
-					<Add library="../../../../../usr/lib/liballegro_primitives.so" />
-					<Add library="../../../../../usr/lib/liballegro_ttf.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_acodec.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_audio.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_color.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_dialog.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_font.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_image.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_main.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_memfile.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_physfs.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_primitives.so" />
+					<Add library="../../../../../../../../usr/lib/liballegro_ttf.so" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -46,6 +48,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Box.cpp" />
+		<Unit filename="Box.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1447544322 source:/home/raim/Documents/Unitec/II Año/Q5/F. III/ArduinoRATM/main.cpp
+1447558489 source:/home/raim/Documents/Unitec/II Año/Q5/F. III/ArduinoRATM/main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"

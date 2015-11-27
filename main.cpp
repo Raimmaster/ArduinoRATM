@@ -13,17 +13,14 @@ using namespace std;
 const float FPS = 60;
 const int SCREEN_W = 720;
 const int SCREEN_H = 640;
-int BOUNCER_SIZE_W = 32;
-int BOUNCER_SIZE_H = 32;
+const int BOUNCER_SIZE_W = 32;
+const int BOUNCER_SIZE_H = 32;
 
 int main()
 {
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
     ALLEGRO_TIMER *timer = NULL;
-    /*float bouncer_x = SCREEN_W / 2.0 - BOUNCER_SIZE_W / 2.0;
-    float bouncer_y = SCREEN_H / 2.0 - BOUNCER_SIZE_H / 2.0;
-    float bouncer_dx = -4.0, bouncer_dy = 4.0;*/
     bool redraw = true;
     if(!al_init())
     {
@@ -49,8 +46,6 @@ int main()
         return -1;
     }
 
-    al_set_target_bitmap(al_get_backbuffer(display));
-
     event_queue = al_create_event_queue();
     if(!event_queue)
     {
@@ -67,7 +62,7 @@ int main()
     al_clear_to_color(al_map_rgb(0,0,0));
 
     ALLEGRO_COLOR color_blue = al_map_rgb(0, 128, 255);
-    float widt = 300;
+    float widt = 50;
     al_flip_display();
 
     al_start_timer(timer);
