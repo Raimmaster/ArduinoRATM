@@ -14,6 +14,9 @@
    This code example by flakas in: https://gist.github.com/flakas/3294829#file-hc-sr04-ino
 */
 
+import processing.serial.*;
+Serial mySerial;
+PrintWriter output;
 
 const int trigPin = 2;
 const int echoPin = 4;
@@ -36,9 +39,6 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  // Read the signal from the sensor: a HIGH pulse whose
-  // duration is the time (in microseconds) from the sending
-  // of the ping to the reception of its echo off of an object.
   //Leemos la señal del sensor: un pulso HIGH cuya duración
   //es el tiempo en µs del ping enviado a la recepción del eco
   //del objeto
@@ -47,12 +47,16 @@ void loop()
 
   // convertir el tiempo en distancia
   cm = microsecondsToCentimeters(duration);
+  int l_byte = cm % 256;
+  int h_byte = cm / 256;
+  //Mandar la distancia en dos bytes para que
+  //el puerto serial pueda manejar el tamaño
+  Serial.write(l_byte);
+  Serial.write(h_byte);
+  //Serial.print(cm);
+  //Serial.println(" cm");
   
-  Serial.print(cm);
-  Serial.print("cm");
-  Serial.println();
-  
-  delay(100);
+  delay(1000);
 }
 
 
