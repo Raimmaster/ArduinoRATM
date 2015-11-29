@@ -2,17 +2,17 @@ import processing.serial.*;
 
 Serial myPort;  //lector de puertos seriales
 int c = 0;
-int distancia = 0;
+int[] distancias;
 //Variables de distancia
 int l_byte = 0;
 int h_byte = 0;
 boolean has_read = false;
 //Lista de objetos detectados
-PVector [] detected;
+PVector[] detected;
 //Constantes de dibujo
 static final int E_WIDTH = 10;
 static final int baud_rate = 9600;
-static final int MAX_DETECTED = 1;//cantidad máxima de objetos que puede detectar el Arduino
+static final int MAX_DETECTED = 3;//cantidad máxima de objetos que puede detectar el Arduino
 
 void setup() 
 {
@@ -22,7 +22,7 @@ void setup()
   PFont f = createFont("Arial", 16, true); // Arial, 16 point, anti-aliasing on
   textFont(f, 12);
   detected = new PVector[MAX_DETECTED];
-  
+  distancias = new int[MAX_DETECTED];
   //String[] fontList = PFont.list();
   //printArray(fontList);
   //distancia = 200;
@@ -40,13 +40,32 @@ void draw() {
   Reads data from the serial port if and only if it hasn't been read before
 **/
 void readFromSerialPort(){
-  if(!has_read && myPort.available() > 0) {
-    l_byte = myPort.read();
-    h_byte = myPort.read();
-    
-    distancia = (h_byte * 256) + l_byte;//obtener la distancia verdadera con los bytes recibidos
-    detected[0] = new PVector(width/2 - E_WIDTH + distancia, height/2 - E_WIDTH); 
-    has_read = true;    
+  if(/*!has_read && */myPort.available() > 0) {
+    for(int i = 0; i < MAX_DETECTED; i++){
+      l_byte = myPort.read();
+      h_byte = myPort.read();
+      
+      distancias[i] = (h_byte * 256) + l_byte;//obtener la distancia verdadera con los bytes recibidos
+      int cx = 0;
+      int cy = 0;
+      switch(i){
+        case 1://frontal
+            cx = width/2 - E_WIDTH + distancias[i];
+            cy = height/2 - E_WIDTH;      
+            break;
+        case 2://left
+            cx = width/2 - E_WIDTH;
+            cy = height/2 - E_WIDTH - distancias[i];      
+            break;
+        case 3://right
+            cx = width/2 - E_WIDTH;
+            cy = height/2 - E_WIDTH + distancias[i];      
+            break;
+      }        
+     
+     detected[i] = new PVector(cx, cy);
+    }
+    //has_read = true;    
   }
 }
 
@@ -69,7 +88,7 @@ void drawDetectedObjects(){
     if(detected[i] != null){
       ellipseMode(CENTER);
       ellipse(detected[i].x, detected[i].y, 10, 10);
-      String actual_dist = (distancia) + " cm ";
+      String actual_dist = (distancias[i]) + " cm ";
       text(actual_dist, detected[i].x + 12, detected[i].y);      
     }
   }
