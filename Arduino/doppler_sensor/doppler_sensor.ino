@@ -1,4 +1,4 @@
-/* HC-SR04 Sensor
+a termin/* HC-SR04 Sensor
  *  
 
   ***EL CIRCUITO***
@@ -13,10 +13,6 @@
    This example code is in the public domain.
    This code example by flakas in: https://gist.github.com/flakas/3294829#file-hc-sr04-ino
 */
-
-import processing.serial.*;
-Serial mySerial;
-PrintWriter output;
 
 const int trigPin = 2;
 const int echoPin = 4;
