@@ -17,6 +17,7 @@ static final int MAX_DETECTED = 3;//cantidad máxima de objetos que puede detect
 void setup() 
 {
   size(1080, 700);
+  frameRate(15);
   String serialPort = "/dev/ttyACM0";//cambiar dependiendo de computadora
   myPort = new Serial(this, serialPort, baud_rate);    
   PFont f = createFont("Arial", 16, true); // Arial, 16 point, anti-aliasing on
@@ -48,7 +49,7 @@ void readFromSerialPort(){
       distancias[i] = (h_byte * 256) + l_byte;//obtener la distancia verdadera con los bytes recibidos
       int cx = 0;
       int cy = 0;
-      switch(i){
+      switch(myPort.read()){//switch depends on the id from the sensor (front, left, right)
         case 1://frontal
             cx = width/2 - E_WIDTH + distancias[i];
             cy = height/2 - E_WIDTH;      
@@ -90,6 +91,7 @@ void drawDetectedObjects(){
       ellipse(detected[i].x, detected[i].y, 10, 10);
       String actual_dist = (distancias[i]) + " cm ";
       text(actual_dist, detected[i].x + 12, detected[i].y);      
+      println(i + ". X: " + distancias[i] + " Y: " + distancias[i]);
     }
   }
 }
