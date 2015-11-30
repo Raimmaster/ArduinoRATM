@@ -19,8 +19,8 @@ const int f_echoPin = 4;
 const int l_trigPin = 6;
 const int l_echoPin = 8;
 //Right sensor, pines
-const int l_trigPin = 10;
-const int l_echoPin = 12;
+const int r_trigPin = 10;
+const int r_echoPin = 12;
 
 void setup() {
   Serial.begin(9600);
