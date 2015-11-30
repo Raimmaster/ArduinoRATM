@@ -16,7 +16,7 @@
 const int f_trigPin = 2;
 const int f_echoPin = 4;
 //Left sensor, pines
-const int l_trigPin = 6;
+const int l_trigPin = 7;
 const int l_echoPin = 8;
 //Right sensor, pines
 const int r_trigPin = 10;
