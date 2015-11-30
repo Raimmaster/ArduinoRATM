@@ -58,18 +58,18 @@ int getDistance(int trig_pin, int echo_pin){
   //El sensor es activado por un pulso HIGH de 10 o más µs
   //Damos un pulso LOW Primero para asegurar un pulso HIGH limpio
   int duration = 0;
-  pinMode(l_trigPin, OUTPUT);
-  digitalWrite(l_trigPin, LOW);
+  pinMode(trigPin, OUTPUT);
+  digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(l_trigPin, HIGH);
+  digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
-  digitalWrite(l_trigPin, LOW);
+  digitalWrite(trigPin, LOW);
   
   //Leemos la señal del sensor: un pulso HIGH cuya duración
   //es el tiempo en µs del ping enviado a la recepción del eco
   //del objeto
-  pinMode(l_echoPin, INPUT);
-  duration = pulseIn(l_echoPin, HIGH);    
+  pinMode(echoPin, INPUT);
+  duration = pulseIn(echoPin, HIGH);    
   // convertir el tiempo en distancia
   return microsecondsToCentimeters(duration);
 }
