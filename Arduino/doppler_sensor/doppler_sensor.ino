@@ -9,7 +9,7 @@
    Adapted for HC-SR04 by Tautvidas Sipavicius
 
    This example code is in the public domain.
-   This code example by flakas in: https://gist.github.com/flakas/3294829#file-hc-sr04-ino
+   This code originally based by flakas's example in: https://gist.github.com/flakas/3294829#file-hc-sr04-ino
 */
 
 //Frontal sensor, pines
